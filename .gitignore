@@ -1,0 +1,75 @@
+# Environment variables
+.env
+.env.local
+.env.production
+*.env
+skey.txt
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+*.log
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Qdrant data
+qdrant_storage/
+.qdrant/
+
+# Node.js / Frontend
+node_modules/
+.npm
+frontend/node_modules/
+frontend/build/
+frontend/.svelte-kit/
+frontend/dist/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Logs
+logs/
+*.log
+
+# OS
+Thumbs.db
+.DS_Store
