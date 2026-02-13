@@ -10,3 +10,11 @@ groq
 python-multipart
 python-jose[cryptography]
 PyPDF2
+
+# Testing and Development
+pytest
+pytest-cov
+pytest-asyncio
+httpx
+black
+flake8
