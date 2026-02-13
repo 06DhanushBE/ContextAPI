@@ -7,7 +7,8 @@ from app.db import models  # REQUIRED for table creation
 from app.api.ingest import router as ingest_router
 from app.api.auth import router as auth_router
 from app.api.keys import router as keys_router
-from app.api import usage, plans, billing
+from app.api.documents import router as documents_router
+from app.api import usage, plans, billing, admin
 
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -32,9 +33,11 @@ app.include_router(chat_router)
 app.include_router(ingest_router)
 app.include_router(auth_router)
 app.include_router(keys_router)
+app.include_router(documents_router)
 app.include_router(usage.router)
 app.include_router(plans.router)
 app.include_router(billing.router)
+app.include_router(admin.router)
 
 
 # Create tables

@@ -1,7 +1,12 @@
 fastapi
-uvicorn
+uvicorn[standard]
 python-dotenv
 sqlalchemy
+psycopg2-binary
 passlib[bcrypt]
 qdrant-client
 sentence-transformers
+groq
+python-multipart
+python-jose[cryptography]
+PyPDF2

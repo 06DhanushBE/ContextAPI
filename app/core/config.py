@@ -29,10 +29,10 @@ def get_db():
 # -----------------------
 security = HTTPBearer(auto_error=True)
 
-def get_client_id(
+def get_api_key_record(
     credentials: HTTPAuthorizationCredentials = Depends(security),
     db: Session = Depends(get_db),
-):
+) -> APIKey:
     api_key = credentials.credentials
     key_hash = hash_api_key(api_key)
 
@@ -48,6 +48,10 @@ def get_client_id(
     if not record:
         raise HTTPException(status_code=401, detail="Invalid API Key")
 
-    # ✅ IMPORTANT FIX
-    # user_id is the tenant / client identifier
-    return record.user_id
+    return record
+
+# Backward compatibility - returns user_id (client_id)
+def get_client_id(
+    api_key: APIKey = Depends(get_api_key_record),
+) -> int:
+    return api_key.user_id

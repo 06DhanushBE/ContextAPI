@@ -13,7 +13,7 @@ def seed():
         doc_id="policy_2"
     )
 
-    print("✅ Seed data inserted")
+    print("Seed data inserted")
 
 if __name__ == "__main__":
     seed()

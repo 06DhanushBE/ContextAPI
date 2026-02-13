@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime
+from datetime import datetime
 from app.db.base import Base
 
 
@@ -9,6 +10,19 @@ class APIKey(Base):
     key_hash = Column(String, unique=True, index=True, nullable=False)
     user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     is_active = Column(Boolean, default=True)
+    llm_provider = Column(String, default="groq", nullable=False)  # groq or openai
+
+
+class Document(Base):
+    __tablename__ = "documents"
+
+    id = Column(Integer, primary_key=True, index=True)
+    api_key_id = Column(Integer, ForeignKey("api_keys.id"), nullable=False)
+    filename = Column(String, nullable=False)
+    file_hash = Column(String, nullable=False)  # MD5 hash to detect duplicates
+    char_count = Column(Integer, nullable=False)
+    chunk_count = Column(Integer, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
 
 
 class User(Base):
